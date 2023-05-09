@@ -2,6 +2,8 @@
 
 int read_and_validation(int argc, char **argv, File_node **head)
 {
+    int count = 0;
+
     // For i = 0 and i is less than argc keep increasing the i variable.
     for (int i = 0; i < argc; i++)
     {
@@ -30,6 +32,7 @@ int read_and_validation(int argc, char **argv, File_node **head)
 
         // Creating a new_node and make its next member NULL.
         File_node *new_node = malloc(sizeof(File_node));
+        strcpy(new_node->file_name, argv[i]);
         new_node->next = NULL;
 
         // Create a temp pointer and assign a head pointer to it.
@@ -51,6 +54,13 @@ int read_and_validation(int argc, char **argv, File_node **head)
         {
             temp->next = new_node;
         }
+        count++;
+    }
+
+    // if count is equal to zero then return FAILURE.
+    if (count == 0)
+    {
+        return FAILURE;
     }
 
     return SUCCESS;
