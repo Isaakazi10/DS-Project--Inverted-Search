@@ -4,19 +4,18 @@ int main(int argc, char **argv)
 {
     if (argc <= 1)
     {
-        printf("");
+        printf("\n[-- ERROR --: ( Argument count should be greater than 1 )--]\n");
         return FAILURE;
     }
 
-    for (int i = 0; i < argc; i++)
+    File_node *head = malloc(sizeof(File_node));
+
+    if (read_and_validation(argc, argv, head) == FAILURE)
     {
-        if (read_and_validation() == FAILURE)
-        {
-            ;
-        }
-        else
-        {
-            ;
-        }
+        ;
+    }
+    else
+    {
+        ;
     }
 }

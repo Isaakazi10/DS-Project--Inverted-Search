@@ -7,28 +7,29 @@
 
 #define SUCCESS 0
 #define FAILURE -1
+#define DATA_NOT_FOUND -2
 
 typedef struct File
 {
     char file_name[30];
     struct File *next;
-} file_node;
+} File_node;
 
-typedef struct Sub_node
+typedef struct Sub
 {
     int word_count;
     char file_name[30];
-    struct sub_node *next;
-} sub_node;
+    struct sub *next;
+} Sub_node;
 
-typedef struct Main_node
+typedef struct Main
 {
     int file_count;
     char word[20];
-    struct main_node *next;
-    sub_node *down;
-} main_node;
+    struct main *next;
+    Sub_node *down;
+} Main_node;
 
-int read_and_validation(char **argv);
+int read_and_validation(int argc, char **argv, File_node **head);
 
 #endif
