@@ -9,6 +9,7 @@
 #define SUCCESS 0
 #define FAILURE -1
 #define DATA_NOT_FOUND -2
+#define DATA_PRESENT -3
 
 typedef struct File
 {
@@ -32,7 +33,11 @@ typedef struct Main
 } Main_node;
 
 int read_and_validation(int argc, char **argv, File_node **head);
-int create_database(File_node **fhead, Main_node **hashtable);
-int display_database(Main_node **hashtable);
+int create_database(File_node *fhead, Main_node **hashtable);
+int display_database(Main_node **hashtable, File_node *fhead);
+int search_database(Main_node **hashtable, File_node *fhead);
+int save_database(File_node *fhead, Main_node **hashtable);
+
+void create_node(Main_node **hashtable, File_node **fhead, char *buffer, int index);
 
 #endif

@@ -22,7 +22,7 @@ int read_and_validation(int argc, char **argv, File_node **head)
         // if it is not equal to 0 print ERROR and continue.
         if (strcmp(strstr(argv[i], "."), ".txt") != 0)
         {
-            printf("\n[-- ERROR --: ( %s is Not .txt file )--]\n", argv[i]);
+            printf("\n[-- ERROR --: ( %s is not .txt file )--]\n", argv[i]);
             continue;
         }
 

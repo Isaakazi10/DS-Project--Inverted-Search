@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "/home/isaa/Desktop/ECEP/DS-Project-(Inverted Search)/main",
-            "args": ["file.txt","file.txt","file2.txt"],
+            "args": ["file.txt","file.txt","file1.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
