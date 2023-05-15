@@ -86,7 +86,7 @@ int create_database(File_node *fhead, Main_node **hashtable)
                             }
                         }
 
-                        // If temp->next is equal to NULL the create Main_node and Sub_node and Update the data and then continue.
+                        // If temp->next is equal to NULL the create Main_node and Sub_node and Update the data and then break current ongoing loop.
                         if (temp->next == NULL)
                         {
                             Main_node *m_new_node = malloc(sizeof(Main_node));
