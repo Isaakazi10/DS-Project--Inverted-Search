@@ -49,6 +49,7 @@ int save_database(File_node *fhead, Main_node **hashtable)
             // While temp is not equal to NULL keep running the loop
             while (temp != NULL)
             {
+
                 // Algorithum for printing data present in main_node and sub_node into a file.
                 fprintf(fptr, "#%d;%s;%d", index, temp->word, temp->file_count);
 
@@ -60,7 +61,7 @@ int save_database(File_node *fhead, Main_node **hashtable)
                 }
 
                 // This will act as a delimiter to denote next line.
-                fprintf(fptr, "#");
+                fprintf(fptr, "#\n");
 
                 // Update the temp pointer.
                 temp = temp->next;

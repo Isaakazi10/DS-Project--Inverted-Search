@@ -5,10 +5,10 @@ int display_database(Main_node **hashtable, File_node *fhead)
     // Using count to check if hashtable is empty or not.
     int count = 0;
 
-    printf("\nIndex\t[ Word ]\t\t[ File_count ]\t");
+    printf("\nIndex\t[ Word ]\t[ File_count ]\t");
     while (fhead != NULL)
     {
-        printf("[ file_name ]\t[ word_count ]\t");
+        printf("[ file_name ] \t [ word_count ]\t");
         fhead = fhead->next;
     }
 
@@ -29,7 +29,7 @@ int display_database(Main_node **hashtable, File_node *fhead)
             Sub_node *stemp = temp->down;
             while (stemp != NULL)
             {
-                printf("\t\t[ %s ]\t[ %d ]", stemp->file_name, stemp->word_count);
+                printf("\t\t[ %s ] \t [ %d ]", stemp->file_name, stemp->word_count);
                 stemp = stemp->next;
             }
 

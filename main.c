@@ -3,9 +3,9 @@
 int main(int argc, char **argv)
 {
     // Variable used in this file.c
-    int res = 0;
-    int choice = 0;
+    int res = 0, choice = 0;
     char cont;
+    int Flag = 0;
 
     // If argc is less than 2 then return FAIlURE.
     if (argc <= 1)
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     while (1)
     {
         // Make a choice.
-        printf("[--- ( Select Your Choice among following OPTIONS ) ---]");
+        printf("\n[--- ( Select Your Choice among following OPTIONS ) ---]");
         printf("\n1-> Create Database\n2-> Display Database\n3-> Search Database\n4-> Save Database\n5-> Update Database\n");
         printf("\n[---( Your Choice )---] ==>  ");
         scanf("%d", &choice);
@@ -48,7 +48,7 @@ int main(int argc, char **argv)
         switch (choice)
         {
         case 1:
-            if (create_database(fhead, hashtable) == SUCCESS)
+            if ((create_database(fhead, hashtable)) == SUCCESS)
             {
                 File_node *ftemp = fhead;
                 printf("\n[---( Creating Database for");
@@ -58,6 +58,7 @@ int main(int argc, char **argv)
                     ftemp = ftemp->next;
                 }
 
+                Flag = 1;
                 printf(" -> SUCCESSFUL )---]");
             }
             else
@@ -103,7 +104,7 @@ int main(int argc, char **argv)
             else if (res == DATA_PRESENT)
             {
                 printf("\n[-- ERROR --: ( Data is already present in File )--]\n");
-                printf("\[-- ERROR --: ( Save Database -> FAILURE )--]\n\n");
+                printf("[-- ERROR --: ( Save Database -> FAILURE )--]\n\n");
             }
             else
             {
@@ -112,6 +113,20 @@ int main(int argc, char **argv)
             break;
 
         case 5:
+
+            if (Flag == 1)
+            {
+                printf("\n[-- ERROR --: ( DataBase has already been Created )--]\n");
+                printf("[-- ERROR --: ( Update Database -> FAILURE )--]\n\n");
+            }
+            else if ((update_database(hashtable)) == SUCCESS)
+            {
+                printf("\n[---( Update Database -> SUCCESSFUL )---]");
+            }
+            else
+            {
+                printf("\n\n[-- ERROR --: ( Update Database -> FAILURE )--]\n");
+            }
             break;
 
         default:

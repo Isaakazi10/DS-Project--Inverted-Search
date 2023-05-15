@@ -37,6 +37,6 @@ int create_database(File_node *fhead, Main_node **hashtable);
 int display_database(Main_node **hashtable, File_node *fhead);
 int search_database(Main_node **hashtable, File_node *fhead);
 int save_database(File_node *fhead, Main_node **hashtable);
-int update_database(File_node *fhead, Main_node **hashtable);
+int update_database(Main_node **hashtable);
 
 #endif
