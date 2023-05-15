@@ -15,6 +15,7 @@ int main(int argc, char **argv)
         return FAILURE;
     }
 
+    // Creating a File_node pointer.
     File_node *fhead = NULL;
 
     // Calling read_and_validation function and if it return SUCCESS then read_and_validation is SUCCESSFUL else FAILURE.
@@ -39,6 +40,7 @@ int main(int argc, char **argv)
     while (1)
     {
         // Make a choice.
+        printf("[--- ( Select Your Choice among following OPTIONS ) ---]");
         printf("\n1-> Create Database\n2-> Display Database\n3-> Search Database\n4-> Save Database\n5-> Update Database\n");
         printf("\n[---( Your Choice )---] ==>  ");
         scanf("%d", &choice);
@@ -48,7 +50,15 @@ int main(int argc, char **argv)
         case 1:
             if (create_database(fhead, hashtable) == SUCCESS)
             {
-                printf("\n[---( Creating Database -> SUCCESSFUL )---]");
+                File_node *ftemp = fhead;
+                printf("\n[---( Creating Database for");
+                while (ftemp != NULL)
+                {
+                    printf(" %s", ftemp->file_name);
+                    ftemp = ftemp->next;
+                }
+
+                printf(" -> SUCCESSFUL )---]");
             }
             else
             {
@@ -110,7 +120,7 @@ int main(int argc, char **argv)
         }
 
         // Continue/Exit the program.
-        printf("\n\n[---( Do you want to continue? (Y/N) )---] ==>  ");
+        printf("\n\n[---( Do you want to continue? (Y/y) or Discontinue (N//n))---] ==>  ");
         scanf(" %c", &cont);
         if (cont == 'n' || cont == 'N')
         {
