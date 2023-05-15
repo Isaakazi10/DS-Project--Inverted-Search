@@ -9,7 +9,7 @@ int create_database(File_node *fhead, Main_node **hashtable)
     {
         // Creating file pointer and char array.
         FILE *fptr = fopen((fhead)->file_name, "r");
-        char buffer[30];
+        char buffer[50];
 
         // while fptr is not equal to end of file keep running the loop
         while (fscanf(fptr, "%s", buffer) != EOF)
@@ -51,7 +51,7 @@ int create_database(File_node *fhead, Main_node **hashtable)
                         // If temp of word id equal to buffer then execute if-statement
                         if (strcmp(temp->word, buffer) == 0)
                         {
-                            //
+                            // Updating file count
                             temp->file_count++;
                             Sub_node *stemp = temp->down;
 
@@ -86,6 +86,7 @@ int create_database(File_node *fhead, Main_node **hashtable)
                             }
                         }
 
+                        // If temp->next is equal to NULL the create Main_node and Sub_node and Update the data and then continue.
                         if (temp->next == NULL)
                         {
                             Main_node *m_new_node = malloc(sizeof(Main_node));
@@ -109,6 +110,7 @@ int create_database(File_node *fhead, Main_node **hashtable)
                 }
             }
 
+            // If hashtable[index] is equal to NULL the create Main_node and Sub_node and Update the data and then continue.
             if (hashtable[index] == NULL)
             {
                 Main_node *m_new_node = malloc(sizeof(Main_node));
@@ -171,6 +173,7 @@ int create_database(File_node *fhead, Main_node **hashtable)
 
                     if (mtemp->next == NULL)
                     {
+                        // Creating Main_node and Sub_node and Update the data in both of them and breking the current ongooing Loop
                         Main_node *m_new_node = malloc(sizeof(Main_node));
                         strcpy(m_new_node->word, buffer);
 

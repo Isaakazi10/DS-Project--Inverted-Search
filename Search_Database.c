@@ -38,7 +38,7 @@ int search_database(Main_node **hashtable, File_node *fhead)
     // Creating a main node mtemp and storing hashtable[index] in it.
     Main_node *mtemp = hashtable[index];
 
-    printf("\nIndex\t Word \t\t[ File_count ]\t");
+    printf("\nIndex\t Word \t[ File_count ]\t");
     while (fhead != NULL)
     {
         printf("[ file_name ]\t[ word_count ]\t");

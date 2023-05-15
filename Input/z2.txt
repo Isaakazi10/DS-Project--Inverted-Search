@@ -1,0 +1,1 @@
+file itself, rather than its index. It is the most popular data structure used in document retrieval
