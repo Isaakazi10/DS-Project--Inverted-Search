@@ -1,3 +1,7 @@
+/*
+Name : Isaa kazi
+Completion Date : May 15 2023 Project Name : Inverted Search
+*/
 #include "is.h"
 
 int main(int argc, char **argv)
@@ -48,6 +52,12 @@ int main(int argc, char **argv)
         switch (choice)
         {
         case 1:
+            if (Flag == 1)
+            {
+                printf("\n[-- ERROR --: ( DataBase has already been Updated )--]\n");
+                printf("[-- ERROR --: ( Database Create -> FAILURE )--]\n\n");
+            }
+
             if ((create_database(fhead, hashtable)) == SUCCESS)
             {
                 File_node *ftemp = fhead;
@@ -122,6 +132,7 @@ int main(int argc, char **argv)
             else if ((update_database(hashtable)) == SUCCESS)
             {
                 printf("\n[---( Update Database -> SUCCESSFUL )---]");
+                Flag = 1;
             }
             else
             {
